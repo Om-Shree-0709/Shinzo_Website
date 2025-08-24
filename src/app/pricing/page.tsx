@@ -1,104 +1,119 @@
+"use client";
+import { motion } from "framer-motion";
+import { FaCheck } from "react-icons/fa";
+
+const plans = [
+  {
+    name: "Self-Hosted",
+    price: "Free",
+    description: "Complete control over your data and infrastructure",
+    features: [
+      "Usage data collection",
+      "GDPR/CPRA compliant by default",
+      "Configurable data sanitization",
+      "Self-hosted infrastructure",
+      "Full source code access",
+      "Community support",
+    ],
+    highlight: false,
+  },
+  {
+    name: "Managed Cloud",
+    price: "Contact Us",
+    description: "We handle the infrastructure, you get the insights",
+    features: [
+      "Everything in Self-Hosted",
+      "Cloud-hosted infrastructure",
+      "Advanced analytics features",
+      "30-day data retention",
+      "Live customer support",
+      "Custom integrations",
+    ],
+    highlight: true,
+  },
+  {
+    name: "Enterprise",
+    price: "Contact Us",
+    description: "Advanced compliance and white-glove service",
+    features: [
+      "Everything in Managed Cloud",
+      "MCP server development support",
+      "Custom data retention policies",
+      "Priority technical support",
+      "Security & compliance reporting",
+      "Custom feature development",
+    ],
+    highlight: false,
+  },
+];
+
 export default function PricingPage() {
-  const plans = [
-    {
-      name: "Starter",
-      price: "$9",
-      period: "/month",
-      description: "Perfect for individuals and small projects",
-      features: [
-        "[Feature 1]",
-        "[Feature 2]",
-        "[Feature 3]",
-        "[Feature 4]"
-      ],
-      popular: false
-    },
-    {
-      name: "Professional",
-      price: "$29",
-      period: "/month",
-      description: "Ideal for growing teams and businesses",
-      features: [
-        "Everything in Starter",
-        "[Feature 5]",
-        "[Feature 6]",
-        "[Feature 7]",
-        "[Feature 8]"
-      ],
-      popular: true
-    },
-    {
-      name: "Enterprise",
-      price: "$99",
-      period: "/month",
-      description: "For large organizations with advanced needs",
-      features: [
-        "Everything in Professional",
-        "[Feature 9]",
-        "[Feature 10]",
-        "[Feature 11]",
-        "[Feature 12]"
-      ],
-      popular: false
-    }
-  ];
-
   return (
-    <div className="min-h-screen bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Pricing Plans
-          </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Choose the perfect plan for your needs. All plans include our core features with different levels of support and advanced capabilities.
-          </p>
-        </div>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-black to-gray-800 text-gray-200 px-6 py-16">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="max-w-6xl w-full text-center"
+      >
+        {/* Heading */}
+        <h1 className="text-4xl md:text-5xl font-bold mb-6">Pricing</h1>
+        <p className="text-lg md:text-xl text-gray-400 leading-relaxed mb-12 max-w-2xl mx-auto">
+          Flexible deployment options designed to fit your needs — whether you
+          want full control or a managed experience.
+        </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* Pricing Grid */}
+        <div className="grid gap-8 md:grid-cols-3">
           {plans.map((plan, index) => (
-            <div key={index} className={`relative bg-white p-8 rounded-lg border-2 ${
-              plan.popular ? 'border-primary shadow-lg' : 'border-gray-200'
-            }`}>
-              {plan.popular && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <span className="bg-primary text-white px-4 py-1 rounded-full text-sm font-medium">
-                    Most Popular
-                  </span>
-                </div>
-              )}
-              
-              <div className="text-center mb-6">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">{plan.name}</h3>
-                <div className="mb-4">
-                  <span className="text-4xl font-bold text-gray-900">{plan.price}</span>
-                  <span className="text-gray-600">{plan.period}</span>
-                </div>
-                <p className="text-gray-600">{plan.description}</p>
+            <motion.div
+              key={plan.name}
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 + index * 0.2 }}
+              className={`rounded-2xl shadow-xl p-8 flex flex-col justify-between border ${
+                plan.highlight
+                  ? "bg-gradient-to-br from-indigo-500 to-indigo-400 text-white border-indigo-300 scale-105"
+                  : "bg-gray-900/40 border-gray-700"
+              }`}
+            >
+              {/* Plan Name & Price */}
+              <div>
+                <h2 className="text-2xl font-bold mb-2">{plan.name}</h2>
+                <p className="text-3xl font-extrabold mb-4">{plan.price}</p>
+                <p className="text-gray-300 mb-6">{plan.description}</p>
+
+                {/* Features */}
+                <ul className="space-y-3 text-left">
+                  {plan.features.map((feature, i) => (
+                    <li key={i} className="flex items-center gap-2">
+                      <FaCheck
+                        className={`h-5 w-5 ${
+                          plan.highlight ? "text-white" : "text-indigo-300"
+                        }`}
+                      />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
 
-              <ul className="space-y-3 mb-8">
-                {plan.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="flex items-center">
-                    <svg className="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-
-              <button className={`w-full py-3 px-6 rounded-lg font-semibold transition-colors ${
-                plan.popular 
-                  ? 'bg-primary text-white hover:bg-primary-dark' 
-                  : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
-              }`}>
-                Get Started
-              </button>
-            </div>
+              {/* CTA Button */}
+              <div className="mt-8">
+                <button
+                  className={`w-full py-3 rounded-lg font-semibold transition-all duration-300 cursor-pointer ${
+                    plan.highlight
+                      ? "bg-white text-black hover:bg-gray-200"
+                      : "bg-indigo-500 hover:bg-indigo-400 text-white"
+                  }`}
+                >
+                  {plan.highlight ? "Get in Touch" : "Choose Plan"}
+                </button>
+              </div>
+            </motion.div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }

@@ -1,74 +1,26 @@
+"use client";
+import { motion } from "framer-motion";
+
 export default function FeaturesPage() {
   return (
-    <div className="min-h-screen bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Features
-          </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Discover all the powerful features that make our product the perfect
-            solution for your needs.
-          </p>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-black to-gray-800 text-gray-200 px-6">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="max-w-2xl text-center"
+      >
+        <h1 className="text-4xl md:text-5xl font-bold mb-6">Features</h1>
+        <p className="text-lg md:text-xl text-gray-400 leading-relaxed mb-8">
+          Explore the powerful features we are building. This page will soon
+          showcase everything that makes our product unique and impactful.
+        </p>
+        <div className="flex justify-center">
+          <button className="px-6 py-3 rounded-full bg-gray-800 hover:bg-gray-700 transition duration-300 ease-in-out shadow-lg hover:shadow-xl">
+            Explore Features
+          </button>
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* Feature Cards */}
-          <div className="bg-gray-50 p-6 rounded-lg">
-            <h3 className="text-xl font-semibold text-gray-900 mb-3">
-              [Feature 1]
-            </h3>
-            <p className="text-gray-600">
-              Detailed description of feature 1 and its benefits.
-            </p>
-          </div>
-
-          <div className="bg-gray-50 p-6 rounded-lg">
-            <h3 className="text-xl font-semibold text-gray-900 mb-3">
-              [Feature 2]
-            </h3>
-            <p className="text-gray-600">
-              Detailed description of feature 2 and its benefits.
-            </p>
-          </div>
-
-          <div className="bg-gray-50 p-6 rounded-lg">
-            <h3 className="text-xl font-semibold text-gray-900 mb-3">
-              [Feature 3]
-            </h3>
-            <p className="text-gray-600">
-              Detailed description of feature 3 and its benefits.
-            </p>
-          </div>
-
-          <div className="bg-gray-50 p-6 rounded-lg">
-            <h3 className="text-xl font-semibold text-gray-900 mb-3">
-              [Feature 4]
-            </h3>
-            <p className="text-gray-600">
-              Detailed description of feature 4 and its benefits.
-            </p>
-          </div>
-
-          <div className="bg-gray-50 p-6 rounded-lg">
-            <h3 className="text-xl font-semibold text-gray-900 mb-3">
-              [Feature 5]
-            </h3>
-            <p className="text-gray-600">
-              Detailed description of feature 5 and its benefits.
-            </p>
-          </div>
-
-          <div className="bg-gray-50 p-6 rounded-lg">
-            <h3 className="text-xl font-semibold text-gray-900 mb-3">
-              [Feature 6]
-            </h3>
-            <p className="text-gray-600">
-              Detailed description of feature 6 and its benefits.
-            </p>
-          </div>
-        </div>
-      </div>
+      </motion.div>
     </div>
   );
 }

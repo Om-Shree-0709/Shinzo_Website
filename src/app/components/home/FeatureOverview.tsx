@@ -1,79 +1,29 @@
-interface Feature {
-  id: number;
-  title: string;
-  description: string;
-  icon: string;
-}
-
-const features: Feature[] = [
-  {
-    id: 1,
-    title: "[Feature 1]",
-    description:
-      "Description of feature 1. This is a placeholder for the first main feature of your product.",
-    icon: "🚀",
-  },
-  {
-    id: 2,
-    title: "[Feature 2]",
-    description:
-      "Description of feature 2. This is a placeholder for the second main feature of your product.",
-    icon: "⚡",
-  },
-  {
-    id: 3,
-    title: "[Feature 3]",
-    description:
-      "Description of feature 3. This is a placeholder for the third main feature of your product.",
-    icon: "🛡️",
-  },
-  {
-    id: 4,
-    title: "[Feature 4]",
-    description:
-      "Description of feature 4. This is a placeholder for the fourth main feature of your product.",
-    icon: "📊",
-  },
-];
+"use client";
+import { motion } from "framer-motion";
 
 export default function FeatureOverview() {
   return (
-    <section className="bg-secondary py-20" aria-labelledby="features-title">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2
-            id="features-title"
-            className="text-3xl md:text-4xl font-bold text-accent mb-4"
-          >
-            Feature Overview
-          </h2>
-          <p className="text-xl text-accent/80 max-w-3xl mx-auto">
-            Discover the key features that make our product stand out. This
-            section will showcase the main capabilities and benefits.
-          </p>
+    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-black to-gray-800 text-gray-200 px-6">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="max-w-3xl text-center"
+      >
+        <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          Feature Overview
+        </h2>
+        <p className="text-lg md:text-xl text-gray-400 leading-relaxed mb-8">
+          This section will highlight the core features of the product. Each
+          feature will include an icon, a title, and a description to showcase
+          its value.
+        </p>
+        <div className="flex justify-center">
+          <button className="px-6 py-3 rounded-full bg-gray-800 hover:bg-gray-700 transition duration-300 ease-in-out shadow-lg hover:shadow-xl">
+            Explore Features
+          </button>
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {features.map((feature) => (
-            <div
-              key={feature.id}
-              className="bg-primary p-6 rounded-lg shadow-sm border border-accent/20 hover:shadow-md transition-shadow"
-            >
-              <div
-                className="text-4xl mb-4"
-                role="img"
-                aria-label={`${feature.title} icon`}
-              >
-                {feature.icon}
-              </div>
-              <h3 className="text-xl font-semibold text-accent mb-3">
-                {feature.title}
-              </h3>
-              <p className="text-accent/80">{feature.description}</p>
-            </div>
-          ))}
-        </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

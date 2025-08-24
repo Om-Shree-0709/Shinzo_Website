@@ -27,36 +27,17 @@ export default function Hero() {
       className="relative min-h-screen flex items-center overflow-hidden"
       aria-labelledby="hero-title"
     >
-      {/* Video Background */}
-      <div className="absolute inset-0 w-full h-full">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="w-full h-full object-cover"
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-          }}
-        >
-          <source src="/vbg2.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-
-      {/* Overlay */}
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 bg-cover bg-center filter blur-sm scale-105"
         style={{
-          background: "rgba(0, 0, 0, 0.3)",
+          backgroundImage: "url('/bg2.jpg')",
         }}
-      />
+      ></div>
 
+      {/* Dark Overlay for Contrast */}
+      <div className="absolute inset-0 bg-black/15"></div>
+
+      {/* Foreground Content */}
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Column - Text Content */}
@@ -82,7 +63,7 @@ export default function Hero() {
                 onInit={(typewriter) => {
                   typewriter
                     .typeString(
-                      "Get anonymous usage data and error tracking for your MCP servers.GDPR/CPRA compliant by default with configurable data sanitization              and self-hosting options."
+                      "Get anonymous usage data and error tracking for your MCP servers. GDPR/CPRA compliant by default with configurable data sanitization and self-hosting options."
                     )
                     .pauseFor(1000)
                     .start();
@@ -101,7 +82,7 @@ export default function Hero() {
                 animationFillMode: "both",
               }}
             >
-              {ctaButtons.map((button, index) => (
+              {ctaButtons.map((button) => (
                 <div key={button.href}>
                   <Link
                     href={button.href}
@@ -125,12 +106,10 @@ export default function Hero() {
                 src="https://www.youtube.com/embed/NHmjBIxz50w?start=2"
                 title="Complete Observability for MCP Servers"
                 className="absolute top-0 left-0 w-full h-full rounded-2xl"
-                frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
               ></iframe>
             </div>
-            {/* Optional: Add a subtle overlay or play button indicator */}
             <div className="absolute inset-0 pointer-events-none">
               <div className="absolute top-4 right-4 bg-black bg-opacity-50 text-white px-3 py-1 rounded-full text-sm font-medium backdrop-blur-sm">
                 Watch Demo
