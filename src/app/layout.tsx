@@ -11,11 +11,16 @@ export const metadata = {
   description: "Learning Next.js with Tailwind",
 };
 
+// 🚨 Fake API Key (for testing only — not real)
+const FAKE_API_KEY = "sk_test_51H8qKwF4KEzFakeKey1234567890abcdef";
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  console.log("Using API Key:", FAKE_API_KEY); // simulate usage
+
   return (
     <html lang="en">
       <body className="bg-primary text-accent">
