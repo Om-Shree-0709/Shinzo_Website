@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import Magnetic from "../components/gsap/Magnetic";
 import {
   FiZap,
   FiShield,
@@ -86,18 +87,22 @@ export default function FeaturesPage() {
             or performance.
           </p>
           <div className="mt-8 flex items-center justify-center gap-3">
-            <a
-              href="/get-started"
-              className="px-5 py-3 rounded-full bg-gray-100 text-gray-900 hover:bg-white transition shadow-lg shadow-black/30"
-            >
-              Get started
-            </a>
-            <a
-              href="/docs"
-              className="px-5 py-3 rounded-full border border-white/15 bg-white/5 hover:bg-white/10 backdrop-blur transition"
-            >
-              Read docs
-            </a>
+            <Magnetic>
+              <a
+                href="/get-started"
+                className="px-5 py-3 rounded-full bg-gray-100 text-gray-900 hover:bg-white transition shadow-lg shadow-black/30"
+              >
+                Get started
+              </a>
+            </Magnetic>
+            <Magnetic>
+              <a
+                href="/docs"
+                className="px-5 py-3 rounded-full border border-white/15 bg-white/5 hover:bg-white/10 backdrop-blur transition"
+              >
+                Read docs
+              </a>
+            </Magnetic>
           </div>
         </motion.div>
       </section>

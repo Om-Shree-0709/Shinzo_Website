@@ -25,6 +25,28 @@
   --tertiary: #fbcbbc;
   --background: var(--color-primary);
   --foreground: var(--color-accent);
+
+  /* UI Component Variables */
+  --background: var(--color-primary);
+  --foreground: var(--color-accent);
+  --card: var(--color-secondary);
+  --card-foreground: var(--color-accent);
+  --popover: var(--color-secondary);
+  --popover-foreground: var(--color-accent);
+  --primary: var(--color-accent);
+  --primary-foreground: var(--color-primary);
+  --secondary: var(--color-secondary);
+  --secondary-foreground: var(--color-accent);
+  --muted: rgba(47, 83, 75, 0.5);
+  --muted-foreground: rgba(251, 203, 188, 0.7);
+  --accent: var(--color-secondary);
+  --accent-foreground: var(--color-accent);
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: var(--glass-border);
+  --input: var(--color-secondary);
+  --ring: var(--color-accent);
+  --radius: 0.5rem;
 }
 
 @theme inline {

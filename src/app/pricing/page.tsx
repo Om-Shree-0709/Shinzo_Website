@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import Magnetic from "../components/gsap/Magnetic";
 import { FaCheck } from "react-icons/fa";
 
 const plans = [
@@ -64,7 +65,7 @@ export default function PricingPage() {
         </p>
 
         {/* Pricing Grid */}
-        <div className="grid gap-8 md:grid-cols-3">
+        <div className="grid gap-8 md:grid-cols-3" data-reveal="up">
           {plans.map((plan, index) => (
             <motion.div
               key={plan.name}
@@ -100,15 +101,17 @@ export default function PricingPage() {
 
               {/* CTA Button */}
               <div className="mt-8">
-                <button
-                  className={`w-full py-3 rounded-lg font-semibold transition-all duration-300 cursor-pointer ${
-                    plan.highlight
-                      ? "bg-white text-black hover:bg-gray-200"
-                      : "bg-indigo-500 hover:bg-indigo-400 text-white"
-                  }`}
-                >
-                  {plan.highlight ? "Get in Touch" : "Choose Plan"}
-                </button>
+                <Magnetic>
+                  <button
+                    className={`w-full py-3 rounded-lg font-semibold transition-all duration-300 cursor-pointer ${
+                      plan.highlight
+                        ? "bg-white text-black hover:bg-gray-200"
+                        : "bg-indigo-500 hover:bg-indigo-400 text-white"
+                    }`}
+                  >
+                    {plan.highlight ? "Get in Touch" : "Choose Plan"}
+                  </button>
+                </Magnetic>
               </div>
             </motion.div>
           ))}
